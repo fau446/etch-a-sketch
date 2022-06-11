@@ -1,3 +1,7 @@
+:root {
+    --grid-size: 1;
+}
+
 h1 {
     text-align: center;
 }
@@ -9,9 +13,14 @@ h1 {
 }
 
 #container {
-    display: flex;
+    display: grid;
     width: 500px;
     height: 500px;
     border: solid black;
+    grid-template-columns: repeat(var(--grid-size), 1fr);
+    grid-template-rows: repeat(var(--grid-size), 1fr);
 }
 
+.cell {
+    text-align: center;
+}

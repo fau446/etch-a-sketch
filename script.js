@@ -1,16 +1,13 @@
 function createGrid(size) {
     let container = document.querySelector('#container');
-    for (let rows = 0; rows < size; rows++) {
-        let row = document.createElement('div');
-        row.classList.add('row');
-        // for loop to add the number of columns
-        for (let columns = 0; columns < size; columns++) {
-            let cell = document.createElement('div');
-            cell.classList.add('cell');
-            row.appendChild(cell);
-        }
-        container.appendChild(row);
+    container.style.setProperty('--grid-size', size);
+    size = size * size;
+    for (let i = 0; i < size; i++) {
+        let cell = document.createElement('div');
+        cell.textContent = "c";
+        cell.classList.add('cell');
+        container.appendChild(cell);
     }
 }
 
-createGrid(4);
+createGrid(16);
