@@ -1,6 +1,9 @@
 function createGrid() {
     reset();
-    let size = prompt("How many pixels do you want the box?");
+    let size = prompt("How many pixels do you want the box? (Max of 100)");
+    if (size > 100) {
+        size = 100;
+    }
     let container = document.querySelector('#container');
     container.style.setProperty('--grid-size', size);
     size = size * size;
