@@ -6,7 +6,7 @@ h1 {
     text-align: center;
 }
 
-#test {
+#sketch-area {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,8 +14,8 @@ h1 {
 
 #container {
     display: grid;
-    width: 500px;
-    height: 500px;
+    min-width: 960px;
+    min-height: 960px;
     border: solid black;
     grid-template-columns: repeat(var(--grid-size), 1fr);
     grid-template-rows: repeat(var(--grid-size), 1fr);
@@ -23,4 +23,8 @@ h1 {
 
 .cell {
     text-align: center;
+}
+
+.black {
+    background-color: black;
 }

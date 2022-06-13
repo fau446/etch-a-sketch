@@ -10,4 +10,9 @@ function createGrid(size) {
     }
 }
 
-createGrid(16);
+function askUser() {
+    let size = prompt("How many pixels do you want the box?");
+    createGrid(size);
+}
+
+askUser();
