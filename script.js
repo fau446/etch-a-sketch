@@ -15,4 +15,15 @@ function askUser() {
     createGrid(size);
 }
 
+function draw() {
+    let cells = document.querySelectorAll('.cell');
+    cells.forEach((cell) => {
+        cell.addEventListener('click', function(e) {
+            e.target.style.background = 'black';
+        })
+    })
+
+}
+
 askUser();
+draw();
