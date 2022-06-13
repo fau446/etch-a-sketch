@@ -1,4 +1,6 @@
-function createGrid(size) {
+function createGrid() {
+    reset();
+    let size = prompt("How many pixels do you want the box?");
     let container = document.querySelector('#container');
     container.style.setProperty('--grid-size', size);
     size = size * size;
@@ -8,22 +10,25 @@ function createGrid(size) {
         cell.classList.add('cell');
         container.appendChild(cell);
     }
+    draw();
 }
 
-function askUser() {
-    let size = prompt("How many pixels do you want the box?");
-    createGrid(size);
+function reset() {
+    let toRemove = document.querySelectorAll('.cell');
+    toRemove.forEach((cell) => {
+        cell.remove();
+    })
 }
 
 function draw() {
     let cells = document.querySelectorAll('.cell');
     cells.forEach((cell) => {
-        cell.addEventListener('click', function(e) {
+        cell.addEventListener('mouseover', function(e) {
             e.target.style.background = 'black';
         })
     })
 
 }
 
-askUser();
-draw();
+const gridBtn = document.querySelector('#grid-btn');
+gridBtn.addEventListener('click', createGrid);
