@@ -23,6 +23,13 @@ function reset() {
     })
 }
 
+function clearGrid() {
+    let toClear = document.querySelectorAll('.cell');
+    toClear.forEach((cell) => {
+        cell.style.background = 'white';
+    })
+}
+
 function draw() {
     let cells = document.querySelectorAll('.cell');
     cells.forEach((cell) => {
@@ -35,3 +42,6 @@ function draw() {
 
 const gridBtn = document.querySelector('#grid-btn');
 gridBtn.addEventListener('click', createGrid);
+
+const clearBtn = document.querySelector('#clear-btn');
+clearBtn.addEventListener('click', clearGrid);
