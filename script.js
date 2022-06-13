@@ -42,21 +42,34 @@ function randomColor() {
     let randomRed = Math.floor(Math.random() * 255);
     let randomGreen = Math.floor(Math.random() * 255);
     let randomBlue = Math.floor(Math.random() * 255);
-    //create the string that is the ‘random color’
     return `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
-    //console.log("rgb("+randomRed+","+randomGreen+","+randomBlue+")");
 }
 
 function drawRandomColors () {
     let cells = document.querySelectorAll('.cell');
     if (!randomColors) {
         randomColors = true;
+        randomColorBtn.style.background = 'pink';
+        randomColorBtn.addEventListener('mouseenter', function (e) {
+            e.target.style.background = 'wheat';
+        })
+        randomColorBtn.addEventListener('mouseleave', function (e) {
+            e.target.style.background = 'pink';
+        })
         cells.forEach((cell) => {
             cell.addEventListener('mouseover', function(e) {
                 e.target.style.background = randomColor();
             })
         })
     } else {
+        randomColors = false;
+        randomColorBtn.style.background = 'palegoldenrod';
+        randomColorBtn.addEventListener('mouseenter', function (e) {
+            e.target.style.background = 'wheat';
+        })
+        randomColorBtn.addEventListener('mouseleave', function (e) {
+            e.target.style.background = 'palegoldenrod';
+        })
         draw();
     }
 }
