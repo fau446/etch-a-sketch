@@ -9,7 +9,6 @@ function createGrid() {
     size = size * size;
     for (let i = 0; i < size; i++) {
         let cell = document.createElement('div');
-        cell.textContent = "c";
         cell.classList.add('cell');
         container.appendChild(cell);
     }
@@ -37,11 +36,40 @@ function draw() {
             e.target.style.background = 'black';
         })
     })
-
 }
+
+function randomColor() {
+    let randomRed = Math.floor(Math.random() * 255);
+    let randomGreen = Math.floor(Math.random() * 255);
+    let randomBlue = Math.floor(Math.random() * 255);
+    //create the string that is the ‘random color’
+    return `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+    //console.log("rgb("+randomRed+","+randomGreen+","+randomBlue+")");
+}
+
+function drawRandomColors () {
+    let cells = document.querySelectorAll('.cell');
+    if (!randomColors) {
+        randomColors = true;
+        cells.forEach((cell) => {
+            cell.addEventListener('mouseover', function(e) {
+                e.target.style.background = randomColor();
+            })
+        })
+    } else {
+        draw();
+    }
+}
+
+let randomColors = false;
 
 const gridBtn = document.querySelector('#grid-btn');
 gridBtn.addEventListener('click', createGrid);
 
 const clearBtn = document.querySelector('#clear-btn');
 clearBtn.addEventListener('click', clearGrid);
+
+const randomColorBtn = document.querySelector('#random-color-btn');
+randomColorBtn.addEventListener('click', drawRandomColors);
+
+randomColor();
